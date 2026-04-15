@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Harbor Lights Boutique Hotel | Charleston's Premier Seaport District Hotel</title>
+  <meta name="description" content="Experience Charleston's historic charm at Harbor Lights Boutique Hotel. Rooftop bar, full-service spa, wedding venue. Book direct for free parking, late checkout & spa credit.">
+  <meta name="keywords" content="boutique hotel charleston, charleston historic district hotels, rooftop bar charleston, wedding venue charleston, spa hotel charleston">
+  <meta name="author" content="Harbor Lights Hotel">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.harborlightscharleston.com">
+  
+  <!-- JSON-LD Schema Markup for Hotel (SEO + Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Harbor Lights Boutique Hotel",
+    "description": "Boutique hotel in Charleston's Historic Seaport District with rooftop bar and spa.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "45 Seaport Lane",
+      "addressLocality": "Charleston",
+      "addressRegion": "SC",
+      "postalCode": "29401",
+      "addressCountry": "US"
+    },
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200",
+    "priceRange": "$$$",
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "4.8",
+      "bestRating": "5"
+    },
+    "telephone": "+18435551234",
+    "url": "https://www.harborlightscharleston.com",
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Rooftop Bar", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Spa", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Wedding Venue", "value": true}
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      color: #1e293b;
+      background-color: #faf9f6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2a5298;
+    }
+    .btn-outline {
+      border: 1.5px solid #2a5298;
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: transparent;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: #2a5298;
+      color: white;
+    }
+
+    /* Hero Section with Realistic Image */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600');
+      background-size: cover;
+      background-position: center 30%;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 650px;
+      margin: 0 auto 32px;
+      opacity: 0.95;
+    }
+    .hero-badge {
+      background: rgba(255,215,0,0.22);
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Booking Widget */
+    .booking-card {
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.3);
+      padding: 36px;
+      margin-top: -70px;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 20;
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-end;
+    }
+    .form-group {
+      flex: 1;
+      min-width: 160px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 20px;
+      font-size: 1rem;
+      transition: 0.2s;
+      background: white;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #2a5298;
+      box-shadow: 0 0 0 3px rgba(42,82,152,0.1);
+    }
+    .btn-book {
+      background: #2a5298;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .btn-book:hover {
+      background: #1e3c72;
+      transform: translateY(-2px);
+    }
+
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 28px 0 8px;
+      font-size: 0.85rem;
+      color: #2d3e50;
+      font-weight: 500;
+    }
+
+    /* Rooms Grid with Realistic Images */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 56px 0 32px;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin: 40px 0;
+    }
+    .room-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s;
+      cursor: pointer;
+    }
+    .room-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -12px rgba(0,0,0,0.2);
+    }
+    .room-img {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+    }
+    .room-info {
+      padding: 24px;
+    }
+    .room-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .room-price {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #2a5298;
+      margin: 12px 0;
+    }
+    .urgency {
+      background: #fff1e6;
+      border-left: 4px solid #f97316;
+      padding: 10px 14px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 12px;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e2a4a 100%);
+      color: white;
+      text-align: center;
+      padding: 56px 24px;
+      border-radius: 36px;
+      margin: 56px 0 40px;
+    }
+    .cta-banner h3 {
+      font-size: 1.9rem;
+      margin-bottom: 16px;
+    }
+
+    /* Amenities */
+    .amenities {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .amenity-item {
+      flex: 1;
+      background: white;
+      padding: 24px 16px;
+      border-radius: 32px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+    .amenity-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    /* Footer */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 56px 0 40px;
+      margin-top: 64px;
+      text-align: center;
+    }
+
+    /* Exit Intent Popup */
+    .exit-popup {
+      position: fixed;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      background: white;
+      max-width: 420px;
+      margin: 0 auto;
+      border-radius: 28px 28px 0 0;
+      box-shadow: 0 -12px 40px rgba(0,0,0,0.2);
+      padding: 28px;
+      transition: bottom 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      z-index: 1000;
+      text-align: center;
+    }
+    .exit-popup.active {
+      bottom: 0;
+    }
+    .close-popup {
+      float: right;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #64748b;
+    }
+    .exit-popup input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 40px;
+      border: 1px solid #cbd5e1;
+      margin: 16px 0;
+    }
+    .popup-btn {
+      background: #2a5298;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .booking-card { margin-top: -40px; padding: 24px; }
+      .section-title { font-size: 1.8rem; }
+      .hero { min-height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="nav">
+      <div class="logo">⚓ HARBOR LIGHTS</div>
+      <div class="nav-links">
+        <a href="#">Rooms</a>
+        <a href="#">Rooftop Bar</a>
+        <a href="#">Spa</a>
+        <a href="#">Weddings</a>
+        <a href="#" class="btn-outline" id="phoneBtn">📞 (843) 555-1234</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🏆 Charleston's Best Boutique Hotel 2025 – TripAdvisor</div>
+      <h1>Where history meets<br>the harbor breeze</h1>
+      <p>Direct booking perks: free parking, 2PM late checkout, welcome cocktail & $50 spa credit.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- BOOKING ENGINE WIDGET -->
+    <div class="booking-card">
+      <form id="mainBookingForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>📅 CHECK-IN</label>
+            <input type="date" id="checkinDate" required>
+          </div>
+          <div class="form-group">
+            <label>📅 CHECK-OUT</label>
+            <input type="date" id="checkoutDate" required>
+          </div>
+          <div class="form-group">
+            <label>👥 GUESTS</label>
+            <select id="guestCount">
+              <option>1 Adult</option>
+              <option selected>2 Adults</option>
+              <option>2 Adults + 1 Child</option>
+              <option>4 Adults</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn-book" id="bookingMainBtn">✨ Check Rates – Free Parking ✨</button>
+          </div>
+        </div>
+      </form>
+      <div class="trust-badges">
+        <span>🔒 256-bit SSL Secure</span>
+        <span>⭐ 4.8 (1,872 verified reviews)</span>
+        <span>🔄 Free cancellation up to 7 days prior</span>
+      </div>
+      <div id="bookingFeedback" style="margin-top: 18px; text-align: center; font-weight: 500;"></div>
+    </div>
+
+    <!-- ROOMS SECTION WITH REALISTIC IMAGES -->
+    <h2 class="section-title">Signature stays, curated comfort</h2>
+    <div class="rooms-grid">
+      <div class="room-card" data-room="Harbor View King">
+        <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800');"></div>
+        <div class="room-info">
+          <h3>Harbor View King</h3>
+          <p>Floor-to-ceiling windows, marble bathroom, private balcony with ocean breeze.</p>
+          <div class="room-price">$279 <span style="font-size:1rem;">/ night</span></div>
+          <div class="urgency">🔥 Limited availability: only 3 rooms left at this rate</div>
+        </div>
+      </div>
+      <div class="room-card" data-room="Rooftop Terrace Suite">
+        <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800');"></div>
+        <div class="room-info">
+          <h3>Rooftop Terrace Suite</h3>
+          <p>Private terrace, wet bar, direct rooftop access & sunset views over Charleston.</p>
+          <div class="room-price">$459 <span style="font-size:1rem;">/ night</span></div>
+          <div class="urgency">⭐ MOST POPULAR – selling fast, book now</div>
+        </div>
+      </div>
+      <div class="room-card" data-room="Petite Queen">
+        <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800');"></div>
+        <div class="room-info">
+          <h3>Petite Queen</h3>
+          <p>Cozy, chic, city view – perfect for solo or short getaway.</p>
+          <div class="room-price">$189 <span style="font-size:1rem;">/ night</span></div>
+          <div class="urgency">🎁 Complimentary breakfast upgrade ($30 value)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY SECTION (Realistic Images) -->
+    <h2 class="section-title">Experience the magic</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600');"></div>
+      <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600');"></div>
+      <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600');"></div>
+      <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600');"></div>
+    </div>
+
+    <!-- CRO BANNER WITH SOCIAL PROOF -->
+    <div class="cta-banner">
+      <h3>✨ Book direct & unlock exclusive perks ✨</h3>
+      <p>✔️ $50 spa credit ✔️ Late checkout (2PM) ✔️ Complimentary valet parking ✔️ Welcome craft cocktail</p>
+      <button class="btn-book" id="floatingCtaButton" style="background: white; color:#0f172a; margin-top: 24px; width: auto; padding: 12px 36px;">Claim my perks →</button>
+    </div>
+
+    <!-- AMENITIES / TRUST INDICATORS -->
+    <div class="amenities">
+      <div class="amenity-item">🍸 Rooftop bar (live jazz Thu-Sat)</div>
+      <div class="amenity-item">💆‍♀️ Full-service spa & sauna</div>
+      <div class="amenity-item">🍳 Gourmet breakfast included</div>
+      <div class="amenity-item">📸 Wedding & event specialists</div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Harbor Lights Boutique Hotel – 45 Seaport Lane, Historic District, Charleston, SC 29401</p>
+    <p style="margin: 16px 0 8px;">📧 stay@harborlights.com | 📞 (843) 555-1234</p>
+    <p>© 2025 Harbor Lights • Direct booking savings up to 18% vs OTAs</p>
+  </div>
+</footer>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exitPopup" class="exit-popup">
+  <button class="close-popup" id="closePopupBtn">✖</button>
+  <h3>🔔 10% off your first direct booking</h3>
+  <p>Subscribe for instant promo code + Charleston insider guide.</p>
+  <input type="email" id="popupEmailInput" placeholder="Your best email">
+  <button id="popupSubmitBtn" class="popup-btn">Send my 10% off →</button>
+  <p style="font-size:0.7rem; margin-top:12px;">No spam, unsubscribe anytime.</p>
+</div>
+
+<script>
+  // ------------------------------
+  // 1. BOOKING SIMULATION + TRACKING
+  // ------------------------------
+  const checkinInput = document.getElementById('checkinDate');
+  const checkoutInput = document.getElementById('checkoutDate');
+  const guestSelect = document.getElementById('guestCount');
+  const bookingBtn = document.getElementById('bookingMainBtn');
+  const feedbackDiv = document.getElementById('bookingFeedback');
+
+  const todayDate = new Date();
+  const tomorrowDate = new Date(todayDate);
+  tomorrowDate.setDate(todayDate.getDate() + 1);
+  const formatYMD = (d) => d.toISOString().split('T')[0];
+  checkinInput.value = formatYMD(todayDate);
+  checkoutInput.value = formatYMD(tomorrowDate);
+
+  function trackEvent(eventName, eventParams = {}) {
+    console.log(`📊 GA4 Event: ${eventName}`, eventParams);
+    if (typeof gtag === 'function') gtag('event', eventName, eventParams);
+  }
+
+  bookingBtn.addEventListener('click', () => {
+    const checkin = checkinInput.value;
+    const checkout = checkoutInput.value;
+    const guests = guestSelect.value;
+    if (!checkin || !checkout) {
+      feedbackDiv.innerHTML = '❌ Please select check-in and check-out dates.';
+      feedbackDiv.style.color = '#b91c1c';
+      return;
+    }
+    if (new Date(checkout) <= new Date(checkin)) {
+      feedbackDiv.innerHTML = '❌ Check-out must be after check-in.';
+      feedbackDiv.style.color = '#b91c1c';
+      return;
+    }
+    trackEvent('begin_checkout', { checkin_date: checkin, checkout_date: checkout, guests: guests, hotel: 'Harbor Lights' });
+    feedbackDiv.innerHTML = '✨ Redirecting to secure booking engine... ✨<br> (Demo: Your room would be reserved at $279/night)';
+    feedbackDiv.style.color = '#2a5298';
+    setTimeout(() => {
+      alert('✅ Demo complete — real integration connects to Cloudbeds/Mews PMS.\nTotal for 2 nights: $558 + taxes. Direct booking perks applied.');
+      trackEvent('generate_lead', { form_id: 'booking_widget', value: 558 });
+    }, 900);
+  });
+
+  document.getElementById('floatingCtaButton').addEventListener('click', () => {
+    trackEvent('select_promotion', { promotion_name: 'spa_credit_banner', creative_slot: 'cta_banner' });
+    bookingBtn.click();
+  });
+
+  document.querySelectorAll('.room-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const roomName = card.getAttribute('data-room') || 'room';
+      trackEvent('view_item', { item_name: roomName, currency: 'USD' });
+      feedbackDiv.innerHTML = `✨ You selected ${roomName}. Complete dates above to book. ✨`;
+      feedbackDiv.style.color = '#0f3b5c';
+    });
+  });
+
+  document.getElementById('phoneBtn')?.addEventListener('click', () => trackEvent('contact', { method: 'phone_click' }));
+
+  // ------------------------------
+  // 2. EXIT INTENT POPUP
+  // ------------------------------
+  const exitPopup = document.getElementById('exitPopup');
+  let popupShown = false;
+
+  function showExitPopup() {
+    if (!popupShown) {
+      exitPopup.classList.add('active');
+      popupShown = true;
+      trackEvent('exit_intent_shown', { popup_type: '10_percent_off' });
+    }
+  }
+
+  document.getElementById('closePopupBtn').addEventListener('click', () => {
+    exitPopup.classList.remove('active');
+  });
+
+  document.getElementById('popupSubmitBtn').addEventListener('click', () => {
+    const email = document.getElementById('popupEmailInput').value;
+    if (email && email.includes('@') && email.includes('.')) {
+      alert('✅ Promo code: HARBOR10 (10% off your entire stay) – sent to ' + email);
+      trackEvent('exit_intent_submit', { email_hash: btoa(email.substring(0,4)), offer: '10%_off' });
+      exitPopup.classList.remove('active');
+    } else {
+      alert('Please enter a valid email address to receive your 10% off.');
+    }
+  });
+
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0 && !popupShown) showExitPopup();
+  });
+
+  // ------------------------------
+  // 3. SCROLL DEPTH TRACKING
+  // ------------------------------
+  let maxDepth = 0;
+  window.addEventListener('scroll', () => {
+    const winHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const scrollPercent = (window.scrollY / (docHeight - winHeight)) * 100;
+    if (scrollPercent > 25 && maxDepth < 25) {
+      trackEvent('scroll_depth', { percent: 25 });
+      maxDepth = 25;
+    } else if (scrollPercent > 50 && maxDepth < 50) {
+      trackEvent('scroll_depth', { percent: 50 });
+      maxDepth = 50;
+    } else if (scrollPercent > 75 && maxDepth < 75) {
+      trackEvent('scroll_depth', { percent: 75 });
+      maxDepth = 75;
+    }
+  });
+
+  // ------------------------------
+  // 4. PAGE LOAD & PERFORMANCE
+  // ------------------------------
+  window.addEventListener('load', () => {
+    trackEvent('page_view', { page_title: 'Harbor Lights Hotel', page_location: window.location.href });
+    if ('performance' in window && performance.timing) {
+      const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+      console.log(`⏱️ Page loaded in ${loadTime}ms`);
+    }
+  });
+
+  // Gallery click tracking
+  document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+    item.addEventListener('click', () => trackEvent('gallery_click', { image_index: idx+1 }));
+  });
+
+  // GA4 placeholder
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-DEMOHOTEL123');
+
+  console.log('✅ Harbor Lights Hotel – Fully optimized with realistic images, CRO, SEO schema, exit intent, and analytics ready');
+</script>
+</body>
+</html>
